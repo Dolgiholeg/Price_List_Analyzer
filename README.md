@@ -88,10 +88,10 @@ def export_to_html(sorted_result):
     
 
     #     Создаём класс PriceMachine
-class PriceMachine:
+    class PriceMachine:
 
-    def __init__(self):
-        self.data = []  # сохраняем полученные списки строк в список после применения условий и патернов
+        def __init__(self):
+            self.data = []  # сохраняем полученные списки строк в список после применения условий и патернов
     
     def load_prices(self, file_path=''):
 
@@ -170,17 +170,17 @@ class PriceMachine:
     # Создаем экземпляр класса PriceMachine и запускает основной процесс.
 
 
-if __name__ == '__main__':
-
+    if __name__ == '__main__':
+    
+        pm = PriceMachine()
+        
+        local_directory = os.path.dirname(os.path.abspath(__file__))  # абсолютный путь к файлам
+        
+        pm.find_text(local_directory)
+    
+        
     pm = PriceMachine()
     
-    local_directory = os.path.dirname(os.path.abspath(__file__))  # абсолютный путь к файлам
+    print(pm.load_prices())
     
-    pm.find_text(local_directory)
-
-    
-pm = PriceMachine()
-
-print(pm.load_prices())
-
-print(export_to_html())  
+    print(export_to_html())  
