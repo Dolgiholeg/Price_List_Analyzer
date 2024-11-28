@@ -87,7 +87,7 @@ def export_to_html(sorted_result):
     print(tabulate.tabulate(results_num, headers=headers, tablefmt='grid', stralign='center'))
     
 
-#     Создаём класс PriceMachine
+    #     Создаём класс PriceMachine
 class PriceMachine:
 
     def __init__(self):
@@ -167,7 +167,7 @@ class PriceMachine:
             self.search_engine(find_text_value)  # передаем введённое слово в поисковик
 
 
-# Создаем экземпляр класса PriceMachine и запускает основной процесс.
+    # Создаем экземпляр класса PriceMachine и запускает основной процесс.
 
 
 if __name__ == '__main__':
