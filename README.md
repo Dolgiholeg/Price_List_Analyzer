@@ -170,10 +170,14 @@ class PriceMachine:
 # Создаем экземпляр класса PriceMachine и запускает основной процесс.
 if __name__ == '__main__':
     pm = PriceMachine()
+    
     local_directory = os.path.dirname(os.path.abspath(__file__))  # абсолютный путь к файлам
+    
     pm.find_text(local_directory)
 
     
 pm = PriceMachine()
+
 print(pm.load_prices())
+
 print(export_to_html())  
