@@ -1,4 +1,5 @@
 Университет Urban аттестационная работа
+
 import csv
 import os
 import re
@@ -7,7 +8,7 @@ import tabulate
 
 def export_to_html(sorted_result):
 
-    #     Экспортирует отсортированные данные в HTML-формат и выводит их в консоль.
+    #     Метод экспортирует отсортированные данные в HTML-формат и выводит их в консоль.
     #
     #     Параметры
     #     sorted_result (list): Список данных для экспорта.
@@ -81,8 +82,9 @@ def export_to_html(sorted_result):
     headers = ['№', 'Наименование', 'Цена', 'Вес', 'Цена за кг', 'Файл']
     results_num = [[i + 1] + res[1:] + [res[0]] for i, res in enumerate(sorted_result)]  # нумеруем строчки
     print(tabulate.tabulate(results_num, headers=headers, tablefmt='grid', stralign='center'))
+    
 
-
+#     Создаём класс PriceMachine
 class PriceMachine:
 
     def __init__(self):
@@ -90,7 +92,7 @@ class PriceMachine:
     
     def load_prices(self, file_path=''):
 
-        #     Сканирует указанный путь к каталогу. Ищет файлы со словом price в названии.
+        #     Метод сканирует указанный путь к каталогу. Ищет файлы со словом price в названии.
         #     В файле ищет столбцы с названием товара, ценой и весом.
         #     Возвращает список из списков со строками удовлетворяющим патернам
         #
@@ -104,17 +106,17 @@ class PriceMachine:
                     for row in reader:
                         for column in row:
                             if re.search(r'(товар|название|наименование|продукт)', column, re.IGNORECASE):
-                                product = row[column].strip()  # type: ignore
+                                product = row[column].strip()  
                             elif re.search(r'(розница|цена)', column, re.IGNORECASE):
-                                price = float(row[column].replace(',', '.').strip())  # type: ignore
+                                price = float(row[column].replace(',', '.').strip())  
                             elif re.search(r'(вес|масса|фасовка)', column, re.IGNORECASE):
-                                weight = float(row[column].replace(',', '.').strip())  # type: ignore
+                                weight = float(row[column].replace(',', '.').strip())  
                         if product:
                             self.data.append([filename, product, price, weight, round(price / weight, 2)])
         
     def _search_product_price_weight(self, headers):
 
-        #     Ищет переданное слово от пользователя в списке от load_price(self.data)
+        #     Метод ищет переданное слово от пользователя в списке от load_price(self.data)
         #     Возвращает отсортированный результат поиска на экспорт и в консоль
         #     :param input_text: value(text) from user_input_find_text
         #     :return: sorted_results
@@ -128,7 +130,7 @@ class PriceMachine:
 
     def search_engine(self, input_text):
 
-        # Ищет переданное слово от пользователя в списке от load_price(self.data)
+        # метод ищет переданное слово от пользователя в списке от load_price(self.data)
         # Возвращает отсортированный результат поиска на экспорт и в консоль
         # :param input_text: value(text) from find_text
         # :return: sorted_results
@@ -142,7 +144,7 @@ class PriceMachine:
 
     def find_text(self, file_path):
 
-        #     Запрашивает у пользователя ввод и выполняет поиск по данным.
+        #     Метод запрашивает у пользователя ввод и выполняет поиск по данным.
         #     Параметры
         #     file_path (str): Путь к каталогу с файлами.
         #     Возвращаемое значение
@@ -162,7 +164,7 @@ class PriceMachine:
             self.search_engine(find_text_value)  # передаем введённое слово в поисковик
 
 
-# Создает экземпляр класса PriceMachine и запускает основной процесс.
+# Создаем экземпляр класса PriceMachine и запускает основной процесс.
 if __name__ == '__main__':
     pm = PriceMachine()
     local_directory = os.path.dirname(os.path.abspath(__file__))  # абсолютный путь к файлам
@@ -171,4 +173,4 @@ if __name__ == '__main__':
     
 pm = PriceMachine()
 print(pm.load_prices())
-print(export_to_html())  # type: ignore
+print(export_to_html())  
