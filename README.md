@@ -168,6 +168,7 @@ class PriceMachine:
 
 
 # Создаем экземпляр класса PriceMachine и запускает основной процесс.
+
 if __name__ == '__main__':
     pm = PriceMachine()
     
