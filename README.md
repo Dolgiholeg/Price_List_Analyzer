@@ -1,15 +1,15 @@
 Университет Urban аттестационная работа
 
-import csv
-
-import os
-
-import re
-
-import tabulate
-
-
-def export_to_html(sorted_result):
+    import csv
+    
+    import os
+    
+    import re
+    
+    import tabulate
+    
+    
+    def export_to_html(sorted_result):
 
     #     Метод экспортирует отсортированные данные в HTML-формат и выводит их в консоль.
     #
