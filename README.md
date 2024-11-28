@@ -105,9 +105,9 @@
                             if re.search(r'(товар|название|наименование|продукт)', column, re.IGNORECASE):
                                 product = row[column].strip()  # type: ignore
                             elif re.search(r'(розница|цена)', column, re.IGNORECASE):
-                                price = float(row[column].replace(',', '.').strip())  # type: ignore
+                                price = float(row[column].replace(',', '.').strip())  
                             elif re.search(r'(вес|масса|фасовка)', column, re.IGNORECASE):
-                                weight = float(row[column].replace(',', '.').strip())  # type: ignore
+                                weight = float(row[column].replace(',', '.').strip())  
                         if product:
                             self.data.append([filename, product, price, weight, round(price / weight, 2)])
         
@@ -168,6 +168,6 @@
     pm.find_text(local_directory)
 
     
-pm = PriceMachine()
-print(pm.load_prices())
-print(export_to_html())  # type: ignore
+    pm = PriceMachine()
+    print(pm.load_prices())
+    print(export_to_html())  
