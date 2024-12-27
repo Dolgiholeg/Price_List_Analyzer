@@ -1,3 +1,5 @@
+# Анализ прайс-листов
+    
     import csv
     import os
     import re
@@ -161,6 +163,7 @@
             self.search_engine(find_text_value)  # передаем введённое слово в поисковик
 
 
+
     # Создает экземпляр класса PriceMachine и запускает основной процесс.
     if __name__ == '__main__':
     pm = PriceMachine()
@@ -171,3 +174,7 @@
     pm = PriceMachine()
     print(pm.load_prices())
     print(export_to_html())  
+![2024-12-27_12-39-04](https://github.com/user-attachments/assets/37a9f500-9d54-4810-b591-f828d161b3bc)
+![2024-12-27_12-39-41](https://github.com/user-attachments/assets/784e5ef9-e27d-40fd-a3ea-234869b1a8fd)
+![Снимок экрана_27-12-2024_12438_localhost](https://github.com/user-attachments/assets/c5bb2e80-688b-4053-9b9f-d3bf9f4f59da)
+
